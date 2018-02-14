@@ -17,7 +17,7 @@ const app = express();
 app.use(helmet());
 
 // Set up default mongoose connection
-const mongoDB = 'mongodb://test:test@ds229418.mlab.com:29418/local_library';
+const mongoDB = process.env.MONGODB_URI ||'mongodb://test:test@ds229418.mlab.com:29418/local_library';
 mongoose.connect(mongoDB);
 // Get mongoose to use the global promise library
 mongoose.Promise = global.Promise;
